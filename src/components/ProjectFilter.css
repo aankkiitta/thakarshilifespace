@@ -1,0 +1,198 @@
+/* ============================================================================
+   PROJECT FILTER — Desktop rectangles + Mobile dropdown
+   ============================================================================ */
+
+.project-filter {
+  width: 100%;
+  margin-bottom: 50px;
+  font-family: "Manrope", sans-serif;
+}
+
+/* ============================================================
+   DESKTOP — Rectangle buttons
+   ============================================================ */
+
+.project-filter__list--desktop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-filter .project-filter__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 22px;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  background-color: transparent !important;
+  color: #4a4a4a !important;
+  border: 1px solid rgba(28, 27, 24, 0.2) !important;
+  border-radius: 0;              /* ✅ Rectangle — no circle */
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.project-filter .project-filter__btn:hover {
+  border-color: #a8813e !important;
+  color: #a8813e !important;
+  background-color: rgba(168, 129, 62, 0.06) !important;
+}
+
+/* ✅ Active — BLACK BOX */
+.project-filter .project-filter__btn.is-active {
+  background-color: #1C1B18 !important;   /* ✅ Black box */
+  color: #ffffff !important;
+  border-color: #1C1B18 !important;
+  font-weight: 600;
+}
+
+.project-filter .project-filter__btn.is-active:hover {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   MOBILE — Dropdown (hidden on desktop)
+   ============================================================ */
+
+.project-filter__dropdown {
+  display: none;
+  position: relative;
+  width: 100%;
+}
+
+.project-filter__dropdown-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 18px;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1C1B18;
+  text-align: left;
+
+  background-color: #ffffff;
+  border: 1px solid rgba(28, 27, 24, 0.18);
+  border-radius: 0;              /* ✅ Rectangle */
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-filter__dropdown-trigger:hover,
+.project-filter__dropdown-trigger:focus {
+  outline: none;
+  border-color: #a8813e;
+  box-shadow: 0 0 0 3px rgba(168, 129, 62, 0.12);
+}
+
+.project-filter__chevron {
+  color: #a8813e;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.project-filter__chevron.is-open {
+  transform: rotate(180deg);
+}
+
+/* ---------- Dropdown Menu ---------- */
+
+.project-filter__dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  background-color: #ffffff;
+  border: 1px solid rgba(28, 27, 24, 0.1);
+  border-radius: 0;              /* ✅ Rectangle */
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+  max-height: 300px;
+  overflow-y: auto;
+
+  animation: dropdownFade 0.2s ease;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.project-filter__dropdown-item {
+  width: 100%;
+  text-align: left;
+
+  padding: 13px 18px;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #4a4a4a;
+
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(28, 27, 24, 0.06);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.project-filter__dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.project-filter__dropdown-item:hover {
+  background-color: rgba(168, 129, 62, 0.08);
+  color: #a8813e;
+}
+
+/* ✅ Active — Black box */
+.project-filter__dropdown-item.is-active {
+  background-color: #1C1B18;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.project-filter__dropdown-item.is-active:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile (≤640px)
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .project-filter {
+    margin-bottom: 32px;
+  }
+
+  .project-filter__list--desktop {
+    display: none !important;
+  }
+
+  .project-filter__dropdown {
+    display: block !important;
+  }
+}

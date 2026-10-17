@@ -1,0 +1,198 @@
+/* ============================================================================
+   ██  TERMS & CONDITIONS PAGE
+   ============================================================================ */
+
+.palm-terms {
+  width: 100%;
+  background: #f7f7f5;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
+/* ============================================================================
+   ██  HEADING
+   ============================================================================ */
+
+.palm-terms__head {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  padding: 0 32px;
+  text-align: center;
+}
+
+.palm-terms__eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #a8813e;
+  margin: 0 0 12px;
+}
+
+.palm-terms__heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: #0f172a;
+  margin: 0 0 20px;
+}
+
+.palm-terms__divider {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #a8813e;
+  margin: 0 auto 20px;
+}
+
+.palm-terms__sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #64748b;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ============================================================================
+   ██  CONTENT
+   ============================================================================ */
+
+.palm-terms__content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.palm-terms__item {
+  background: #ffffff;
+  border-left: 4px solid #a8813e;
+  border-radius: 6px;
+  padding: 28px 32px;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.palm-terms__item:hover {
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.palm-terms__item-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #0f172a;
+  margin: 0 0 12px;
+}
+
+.palm-terms__item-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #475569;
+  margin: 0;
+}
+
+.palm-terms__item-text + .palm-terms__item-text {
+  margin-top: 10px;
+}
+
+/* ============================================================================
+   ██  LAST UPDATED
+   ============================================================================ */
+
+.palm-terms__updated {
+  text-align: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px;
+  font-style: italic;
+  letter-spacing: 0.3px;
+  color: #94a3b8;
+  margin: 50px auto 0;
+  padding: 0 32px;
+}
+
+/* ============================================================================
+   ██  RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .palm-terms {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .palm-terms__head {
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+
+  .palm-terms__heading {
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  .palm-terms__sub {
+    font-size: 14px;
+  }
+
+  .palm-terms__content {
+    padding: 0 20px;
+    gap: 20px;
+  }
+
+  .palm-terms__item {
+    padding: 22px 20px;
+  }
+
+  .palm-terms__item-title {
+    font-size: 15.5px;
+    margin-bottom: 10px;
+  }
+
+  .palm-terms__item-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+  }
+
+  .palm-terms__updated {
+    font-size: 11.5px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .palm-terms__heading {
+    font-size: 24px;
+  }
+
+  .palm-terms__eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+  }
+
+  .palm-terms__item {
+    padding: 20px 18px;
+    border-left-width: 3px;
+  }
+
+  .palm-terms__item-title {
+    font-size: 14.5px;
+  }
+
+  .palm-terms__item-text {
+    font-size: 13px;
+  }
+}

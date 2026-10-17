@@ -1,0 +1,365 @@
+/* ============================================================================
+   ██  NAVBAR
+   ============================================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background 0.5s ease, backdrop-filter 0.5s ease,
+              box-shadow 0.5s ease;
+}
+
+.navbar.is-transparent {
+  background: transparent;
+}
+
+.navbar.is-solid {
+  background: rgba(247, 244, 238, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px 0 rgba(28, 27, 24, 0.08);
+}
+
+/* ============================================================================
+   ██  INNER LAYOUT
+   ============================================================================ */
+
+.navbar__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 101;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .navbar__inner {
+    padding: 0 40px;
+    height: 96px;
+  }
+}
+
+/* ============================================================================
+   ██  LOGO  ✅ INCREASED
+   ============================================================================ */
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  z-index: 102;
+  max-width: 70%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.navbar__logo svg {
+  flex-shrink: 0;
+}
+
+.navbar__logo-img {
+  height: 100px;                       /* ✅ 72 → 100 */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: height 0.3s ease, filter 0.3s ease;
+}
+
+/* Transparent header — aur bada */
+.navbar.is-transparent .navbar__logo-img {
+  height: 115px;                       /* ✅ 84 → 115 */
+}
+
+/* ---------- Logo Text ---------- */
+.navbar__logo-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  transition: color 0.5s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 640px) {
+  .navbar__logo-text {
+    font-size: 1.125rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+.navbar.is-transparent .navbar__logo-text {
+  color: #F7F4EE;
+}
+
+.navbar.is-solid .navbar__logo-text {
+  color: #1C1B18;
+}
+
+/* ============================================================================
+   ██  DESKTOP LINKS
+   ============================================================================ */
+
+.navbar__links {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  gap: 36px;
+}
+
+@media (min-width: 1024px) {
+  .navbar__links {
+    display: flex;
+  }
+}
+
+.navbar__link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.navbar.is-transparent .navbar__link {
+  color: rgba(247, 244, 238, 0.9);
+}
+
+.navbar.is-transparent .navbar__link:hover {
+  color: #F7F4EE;
+}
+
+.navbar.is-solid .navbar__link {
+  color: rgba(28, 27, 24, 0.8);
+}
+
+.navbar.is-solid .navbar__link:hover {
+  color: #1C1B18;
+}
+
+.navbar__link-underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+.navbar.is-transparent .navbar__link-underline {
+  background: #F7F4EE;
+}
+
+.navbar.is-solid .navbar__link-underline {
+  background: #A9793C;
+}
+
+.navbar__link:hover .navbar__link-underline {
+  width: 100%;
+}
+
+/* ============================================================================
+   ██  DESKTOP CTA
+   ============================================================================ */
+
+.navbar__cta-wrap {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .navbar__cta-wrap {
+    display: block;
+  }
+}
+
+.navbar__cta {
+  display: inline-block;
+  padding: 12px 24px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  border: 1px solid transparent;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar.is-transparent .navbar__cta {
+  border-color: rgba(247, 244, 238, 0.5);
+  color: #F7F4EE;
+}
+
+.navbar.is-transparent .navbar__cta:hover {
+  background: #F7F4EE;
+  color: #1C1B18;
+}
+
+.navbar.is-solid .navbar__cta {
+  border-color: rgba(28, 27, 24, 0.3);
+  color: #1C1B18;
+}
+
+.navbar.is-solid .navbar__cta:hover {
+  background: #1C1B18;
+  color: #F7F4EE;
+}
+
+/* ============================================================================
+   ██  HAMBURGER
+   ============================================================================ */
+
+.navbar__burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 102;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .navbar__burger {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   ██  MOBILE DROPDOWN MENU
+   ============================================================================ */
+
+.navbar__mobile {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: #F7F4EE;
+  overflow: hidden;
+
+  max-height: 0;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  box-shadow: 0 10px 30px rgba(28, 27, 24, 0.1);
+  z-index: 99;
+}
+
+.navbar__mobile.is-open {
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .navbar__mobile {
+    top: 96px;
+  }
+  .navbar__mobile.is-open {
+    max-height: calc(100vh - 96px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar__mobile {
+    display: none;
+  }
+}
+
+/* ---------- Inner ---------- */
+.navbar__mobile-inner {
+  padding: 24px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ---------- Mobile Link ---------- */
+.navbar__mobile-link {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #1C1B18;
+  text-decoration: none;
+  padding: 16px 8px;
+  border-bottom: 1px solid rgba(28, 27, 24, 0.08);
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.navbar__mobile-link:last-of-type {
+  border-bottom: none;
+}
+
+.navbar__mobile-link:hover {
+  color: #A9793C;
+  padding-left: 16px;
+}
+
+/* ---------- Mobile CTA ---------- */
+.navbar__mobile-cta {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 16px 28px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  background: #1C1B18;
+  color: #F7F4EE;
+  transition: background 0.3s ease;
+}
+
+.navbar__mobile-cta:hover {
+  background: #A9793C;
+}
+
+/* ============================================================================
+   ██  LOGO RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 1024px) {
+  .navbar__logo-img { height: 88px; }
+  .navbar.is-transparent .navbar__logo-img { height: 96px; }
+}
+
+@media (max-width: 768px) {
+  .navbar__logo-img { height: 78px; }
+  .navbar.is-transparent .navbar__logo-img { height: 86px; }
+}
+
+@media (max-width: 640px) {
+  .navbar__logo-img { height: 68px; }
+  .navbar.is-transparent .navbar__logo-img { height: 76px; }
+}
+
+@media (max-width: 480px) {
+  .navbar__logo-img { height: 60px; }
+  .navbar.is-transparent .navbar__logo-img { height: 66px; }
+}

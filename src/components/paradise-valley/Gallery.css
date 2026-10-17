@@ -1,0 +1,383 @@
+/* ============================================================================
+   11. GALLERY SECTION (Our Work)
+   ============================================================================ */
+.prd-gallery {
+  width: 100%;
+  padding: 60px 0;
+  background: #f3f1ec;
+  overflow: hidden;
+}
+
+.prd-gallery__panel {
+  position: relative;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 50px 0 40px;
+  background: #0f4c5c;
+  border-radius: 12px;
+  overflow: visible;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0px,
+    transparent 6px,
+    rgba(255, 255, 255, 0.05) 6px,
+    rgba(255, 255, 255, 0.05) 7px
+  );
+  background-size: 40% 40%;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.prd-gallery__head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.prd-gallery__title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.prd-gallery__subtitle {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* ── Viewport & Track ──────────────────────────────────── */
+.prd-gallery__viewport {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  padding: 30px 0 20px;
+  user-select: none;
+}
+
+.prd-gallery__track {
+  display: flex;
+  gap: 32px;
+  padding: 0 calc(50% - 240px);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ── Project Card ──────────────────────────────────────── */
+.prd-project-card {
+  --card-width: 480px;
+  position: relative;
+  flex-shrink: 0;
+  width: var(--card-width);
+  margin-top: 44px;
+  padding: 260px 20px 0;
+  min-height: 340px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #ffffff, #f7f7f7);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.prd-project-card:hover,
+.prd-project-card.is-active {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.prd-project-card__image-wrap {
+  position: absolute;
+  top: -48px;
+  left: 20px;
+  right: 20px;
+  height: 310px;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #d8e8ee;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+.prd-project-card__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.7s ease;
+}
+
+.prd-project-card:hover .prd-project-card__image,
+.prd-project-card.is-active .prd-project-card__image {
+  transform: scale(1.05);
+}
+
+.prd-project-card__star {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: #0f4c5c;
+  opacity: 0.55;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.prd-project-card__star svg {
+  width: 100%;
+  height: 100%;
+}
+
+.prd-project-card:hover .prd-project-card__star,
+.prd-project-card.is-active .prd-project-card__star {
+  opacity: 0.9;
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.prd-project-card__title {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  margin: 0;
+  color: #555555;
+  text-align: center;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+
+/* ── Nav Arrows ────────────────────────────────────────── */
+.prd-gallery__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.prd-gallery__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.prd-gallery__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.prd-gallery__arrow:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.08);
+}
+
+.prd-gallery__arrow:active {
+  transform: scale(0.94);
+}
+
+/* ── Dots ──────────────────────────────────────────────── */
+.prd-gallery__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.prd-gallery__dot {
+  display: inline-block;
+  width: 22px;
+  height: 3px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.35s ease, width 0.35s ease;
+}
+
+.prd-gallery__dot.is-active {
+  background: #ffffff;
+  width: 40px;
+}
+
+.prd-gallery__dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.prd-gallery__dot.is-active:hover {
+  background: #ffffff;
+}
+
+/* ============================================================================
+   11.3 TABLET (≤1024px)
+   ============================================================================ */
+@media (max-width: 1024px) {
+  .prd-gallery__panel { max-width: 780px; padding: 45px 0 35px; }
+  .prd-gallery__title { font-size: 28px; }
+  .prd-gallery__head { margin-bottom: 36px; }
+
+  .prd-gallery__track {
+    gap: 26px;
+    padding: 0 calc(50% - 190px);
+  }
+
+  .prd-project-card {
+    --card-width: 380px;
+    margin-top: 36px;
+    padding: 210px 18px 0;
+    min-height: 290px;
+  }
+  .prd-project-card__image-wrap {
+    top: -40px;
+    left: 18px;
+    right: 18px;
+    height: 250px;
+  }
+  .prd-project-card__title {
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+    font-size: 14px;
+  }
+  .prd-project-card__star {
+    left: 18px;
+    bottom: 16px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .prd-gallery__arrow { width: 40px; height: 40px; }
+  .prd-gallery__arrow svg { width: 16px; height: 16px; }
+}
+
+/* ============================================================================
+   11.4 MOBILE (≤640px)
+   ============================================================================ */
+@media (max-width: 640px) {
+  .prd-gallery { padding: 25px 0; }
+
+  .prd-gallery__panel {
+    max-width: 100%;
+    padding: 25px 0 22px;
+    border-radius: 10px;
+  }
+
+  .prd-gallery__head { margin-bottom: 20px; }
+  .prd-gallery__title { font-size: 24px; }
+  .prd-gallery__subtitle { font-size: 11.5px; }
+
+  .prd-gallery__viewport { padding: 20px 0 12px; }
+
+  .prd-gallery__track {
+    gap: 20px;
+    padding: 0 calc(50% - 150px);
+  }
+
+  .prd-project-card {
+    --card-width: 300px;
+    margin-top: 25px;
+    padding: 165px 14px 0;
+    min-height: 205px;
+  }
+  .prd-project-card__image-wrap {
+    top: -30px;
+    left: 14px;
+    right: 14px;
+    height: 190px;
+  }
+  .prd-project-card__title {
+    left: 14px;
+    right: 14px;
+    bottom: 10px;
+    font-size: 13px;
+  }
+  .prd-project-card__star {
+    left: 14px;
+    bottom: 10px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .prd-gallery__nav { gap: 18px; }
+  .prd-gallery__arrow { width: 38px; height: 38px; }
+  .prd-gallery__arrow svg { width: 15px; height: 15px; }
+
+  .prd-gallery__dots { margin-top: 15px; }
+  .prd-gallery__dot { width: 18px; }
+  .prd-gallery__dot.is-active { width: 30px; }
+}
+
+/* ============================================================================
+   11.5 SMALL MOBILE (≤400px)
+   ============================================================================ */
+@media (max-width: 400px) {
+  .prd-gallery { padding: 20px 0; }
+  .prd-gallery__panel { padding: 20px 0 18px; }
+
+  .prd-gallery__title { font-size: 20px; }
+  .prd-gallery__head { margin-bottom: 15px; }
+
+  .prd-gallery__viewport { padding: 15px 0 10px; }
+
+  .prd-gallery__track {
+    gap: 16px;
+    padding: 0 calc(50% - 125px);
+  }
+
+  .prd-project-card {
+    --card-width: 250px;
+    margin-top: 22px;
+    padding: 140px 12px 0;
+    min-height: 180px;
+  }
+  .prd-project-card__image-wrap {
+    top: -26px;
+    left: 12px;
+    right: 12px;
+    height: 165px;
+  }
+  .prd-project-card__title {
+    left: 12px;
+    right: 12px;
+    bottom: 8px;
+    font-size: 12px;
+  }
+  .prd-project-card__star {
+    left: 12px;
+    bottom: 8px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .prd-gallery__nav { gap: 14px; }
+  .prd-gallery__arrow { width: 34px; height: 34px; }
+  .prd-gallery__arrow svg { width: 14px; height: 14px; }
+
+  .prd-gallery__dots { margin-top: 12px; }
+  .prd-gallery__dot { width: 16px; }
+  .prd-gallery__dot.is-active { width: 26px; }
+}

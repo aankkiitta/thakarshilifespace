@@ -1,0 +1,136 @@
+/* ============================================================================
+   PROJECTS PAGE — Heading + Subtitle + Featured + Completed
+   ============================================================================ */
+
+.projects-page {
+  width: 100%;
+  padding-top: 112px;
+  background-color: #ffffff;
+}
+
+/* ============================================================
+   MAIN HEADER
+   ============================================================ */
+
+.projects-page__header {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects-page__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #a8813e;
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+.projects-page__subtitle {
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(28, 27, 24, 0.45);
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* ============================================================
+   SECTION HEADERS (Featured / Completed)
+   ============================================================ */
+
+.projects-page__featured-header {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 40px 24px;
+  text-align: center;
+}
+
+.projects-page__featured-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #1C1B18;
+  margin: 0;
+  text-align: center;
+}
+
+/* ============================================================
+   FILTER WRAPPER
+   ============================================================ */
+
+.projects-page__filter-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px 20px;
+}
+
+/* ============================================================
+   SHOWCASE WRAPPERS (Cards Wrapper)
+   ============================================================ */
+
+.projects-page__showcase-wrap,
+.projects-page__completed-wrap {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ✅ Inner components ka top gap remove karo */
+.projects-page__showcase-wrap > *,
+.projects-page__completed-wrap > * {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ============================================================
+   ⚠️ IMPORTANT: Inner Headings Hide (SIRF PROJECTS PAGE KE ANDAR)
+   ============================================================ */
+
+/* ✅ Sirf `.projects-page` ke andar wale components ki headings hide hongi.
+   Home page wale components ki headings safe rahengi. */
+.projects-page .pfeat__head,
+.projects-page .pfeat__viewall,
+.projects-page .cfeat__head,
+.projects-page .cfeat__viewall {
+  display: none !important;
+}
+
+/* ✅ Sirf Projects page ke andar padding fix */
+.projects-page .pfeat,
+.projects-page .pfeat__inner,
+.projects-page .cfeat,
+.projects-page .cfeat__inner {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .projects-page__header { padding: 30px 30px 16px; }
+  .projects-page__featured-header { padding: 30px 30px 20px; }
+  .projects-page__filter-wrap { padding: 0 30px 16px; }
+}
+
+@media (max-width: 640px) {
+  .projects-page { padding-top: 96px; }
+  .projects-page__header { padding: 24px 20px 12px; }
+  .projects-page__title { font-size: 2.5rem; margin-bottom: 8px; }
+  .projects-page__featured-header { padding: 30px 20px 16px; }
+  .projects-page__featured-title { font-size: 1.8rem; }
+  .projects-page__filter-wrap { padding: 0 20px 12px; }
+}

@@ -1,0 +1,204 @@
+.jmh-plans {
+  width: 100%;
+  padding: 85px 60px 85px;
+  background: #ffffff;
+}
+
+.jmh-plans__head {
+  text-align: center;
+  margin-bottom: 70px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.jmh-plans__eyebrow {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #7a1f1f;
+  margin-bottom: 14px;
+}
+
+.jmh-plans__title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.jmh-plans__divider {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #7a1f1f;
+  margin: 0 auto;
+}
+
+.jmh-plan__row {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto 100px;
+}
+
+.jmh-plan__row:last-child { margin-bottom: 0; }
+
+.jmh-plan__row--reverse .jmh-plan__content { order: 2; }
+.jmh-plan__row--reverse .jmh-plan__media   { order: 1; }
+
+.jmh-plan__content { max-width: 520px; }
+
+.jmh-plan__bhk {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #7a1f1f;
+  margin-bottom: 6px;
+}
+
+.jmh-plan__tagline {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.jmh-plan__lead {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  line-height: 1.35;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.jmh-plan__desc {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: #4a5568;
+  margin-bottom: 28px;
+}
+
+.jmh-plan__specs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.jmh-plan__specs li {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14.5px;
+}
+
+.jmh-plan__label {
+  font-weight: 700;
+  color: #7a1f1f;
+  min-width: 110px;
+}
+
+.jmh-plan__value {
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.jmh-plan__btn {
+  display: inline-block;
+  padding: 14px 40px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #7a1f1f;
+  text-align: center;
+  background: transparent;
+  border: 2px dotted #7a1f1f;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.jmh-plan__btn:hover {
+  background: #7a1f1f;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(122, 31, 31, 0.3);
+}
+
+.jmh-plan__media {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jmh-plan__media img {
+  width: 100%;
+  height: auto;
+  max-width: 620px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(15, 23, 42, 0.08));
+}
+
+@media (max-width: 1024px) {
+  .jmh-plans { padding: 70px 40px 70px; }
+  .jmh-plans__head { margin-bottom: 55px; }
+  .jmh-plans__title { font-size: 28px; }
+  .jmh-plan__row { gap: 45px; margin-bottom: 80px; }
+  .jmh-plan__bhk { font-size: 28px; }
+  .jmh-plan__lead { font-size: 20px; }
+}
+
+@media (max-width: 900px) {
+  .jmh-plan__row,
+  .jmh-plan__row--reverse {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .jmh-plan__row--reverse .jmh-plan__content { order: 1; }
+  .jmh-plan__row--reverse .jmh-plan__media   { order: 2; }
+  .jmh-plan__content { max-width: 100%; text-align: center; }
+  .jmh-plan__media img { max-width: 100%; }
+  .jmh-plan__specs li { justify-content: center; }
+  .jmh-plan__btn { display: block; max-width: 340px; margin: 0 auto; }
+}
+
+@media (max-width: 640px) {
+  .jmh-plans { padding: 55px 20px 55px; }
+  .jmh-plans__head { margin-bottom: 45px; }
+  .jmh-plans__eyebrow { font-size: 11px; letter-spacing: 3px; margin-bottom: 10px; }
+  .jmh-plans__title { font-size: 22px; letter-spacing: 1.5px; margin-bottom: 12px; }
+  .jmh-plans__divider { width: 50px; }
+  .jmh-plan__row { margin-bottom: 60px; gap: 30px; }
+  .jmh-plan__bhk { font-size: 24px; letter-spacing: 0.8px; }
+  .jmh-plan__tagline { font-size: 14px; margin-bottom: 14px; }
+  .jmh-plan__lead { font-size: 17px; margin-bottom: 16px; }
+  .jmh-plan__desc { font-size: 13px; line-height: 1.75; margin-bottom: 22px; }
+  .jmh-plan__specs { gap: 10px; margin-bottom: 26px; }
+  .jmh-plan__specs li { font-size: 13px; gap: 14px; }
+  .jmh-plan__label { min-width: 100px; }
+  .jmh-plan__btn { padding: 13px 28px; font-size: 11.5px; letter-spacing: 2px; width: 100%; max-width: 320px; }
+}

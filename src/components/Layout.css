@@ -1,0 +1,15 @@
+/* ============================================================================
+   ██  LAYOUT
+   ============================================================================ */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #F7F4EE;
+}
+
+.layout__main {
+  flex: 1;
+  display: block;
+}

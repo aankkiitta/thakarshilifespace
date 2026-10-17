@@ -1,0 +1,337 @@
+/* ============================================================================
+   ██  PROJECT SHOWCASE
+   ============================================================================ */
+
+.showcase {
+  padding: 96px 24px;
+  background: #F7F4EE;
+}
+
+@media (min-width: 768px) {
+  .showcase {
+    padding: 128px 40px;
+  }
+}
+
+.showcase__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ---------- Head ---------- */
+.showcase__head {
+  margin-bottom: 64px;
+}
+
+.showcase__eyebrow {
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #8A6A3F;
+  margin-bottom: 16px;
+}
+
+.showcase__head-row {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .showcase__head-row {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.showcase__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #1C1B18;
+  line-height: 1.15;
+  margin: 0;
+  max-width: 520px;
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .showcase__title {
+    font-size: 3rem;
+  }
+}
+
+.showcase__desc {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: rgba(28, 27, 24, 0.6);
+  max-width: 380px;
+  margin: 0;
+}
+
+/* ---------- Filters ---------- */
+.showcase__filters {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+.showcase__filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.showcase__filter-btn {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: 1px solid rgba(28, 27, 24, 0.25);
+  background: transparent;
+  color: rgba(28, 27, 24, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.showcase__filter-btn:hover {
+  border-color: #A9793C;
+  color: #A9793C;
+}
+
+.showcase__filter-btn.is-active {
+  background: #1C1B18;
+  color: #F7F4EE;
+  border-color: #1C1B18;
+}
+
+.showcase__loc-btn {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.75rem;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(28, 27, 24, 0.15);
+  background: transparent;
+  color: rgba(28, 27, 24, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.showcase__loc-btn:hover {
+  border-color: rgba(169, 121, 60, 0.5);
+  color: #8A6A3F;
+}
+
+.showcase__loc-btn.is-active {
+  background: rgba(169, 121, 60, 0.15);
+  border-color: #A9793C;
+  color: #8A6A3F;
+}
+
+/* ---------- Empty ---------- */
+.showcase__empty {
+  padding: 64px 0;
+  text-align: center;
+  font-family: "Manrope", sans-serif;
+  color: rgba(28, 27, 24, 0.5);
+}
+
+/* ============================================================================
+   ██  GRID
+   ============================================================================ */
+
+.showcase__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .showcase__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcase__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* ============================================================================
+   ██  PROJECT CARD
+   ============================================================================ */
+
+.project-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #1C1B18;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- Image Wrap ---------- */
+.project-card__image-wrap {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .project-card__image-wrap {
+    height: 480px;
+  }
+}
+
+/* ---------- Image ---------- */
+.project-card__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease-out;
+}
+
+.project-card:hover .project-card__image {
+  transform: scale(1.1);
+}
+
+/* ---------- Overlay ---------- */
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(18, 17, 16, 0.95) 0%,
+    rgba(18, 17, 16, 0.15) 50%,
+    transparent 100%
+  );
+  opacity: 0.85;
+  transition: opacity 0.5s ease;
+}
+
+.project-card:hover .project-card__overlay {
+  opacity: 1;
+}
+
+/* ---------- Status Badge ---------- */
+.project-card__status {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #F7F4EE;
+  background: rgba(18, 17, 16, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 6px 12px;
+  border: 1px solid rgba(247, 244, 238, 0.2);
+}
+
+/* ---------- Content (Bottom) ---------- */
+.project-card__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
+  transition: transform 0.5s ease-out;
+}
+
+@media (min-width: 768px) {
+  .project-card__content {
+    padding: 28px;
+  }
+}
+
+.project-card:hover .project-card__content {
+  transform: translateY(-4px);
+}
+
+/* ---------- Location ---------- */
+.project-card__location {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #C79A5B;
+  margin: 0 0 8px;
+}
+
+/* ---------- Title ---------- */
+.project-card__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #F7F4EE;
+  margin: 0 0 12px;
+}
+
+/* ---------- Details (Hover Reveal) ---------- */
+.project-card__details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.project-card:hover .project-card__details {
+  max-height: 100px;
+}
+
+.project-card__details-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(247, 244, 238, 0.15);
+}
+
+.project-card__config {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.75rem;
+  color: rgba(247, 244, 238, 0.7);
+  margin: 0;
+}
+
+.project-card__price {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #F7F4EE;
+  margin: 2px 0 0;
+}
+
+/* ---------- Arrow Button ---------- */
+.project-card__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #C79A5B;
+  color: #C79A5B;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.project-card:hover .project-card__arrow {
+  background: #C79A5B;
+  color: #121110;
+}

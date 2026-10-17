@@ -1,0 +1,95 @@
+/* ============================================================================
+   ██  PHILOSOPHY SECTION
+   ============================================================================ */
+
+.philosophy {
+  background: #EFE9DE;
+  padding: 96px 24px;
+}
+
+@media (min-width: 768px) {
+  .philosophy {
+    padding: 128px 40px;
+  }
+}
+
+.philosophy__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ---------- Title ---------- */
+.philosophy__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.25rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #1C1B18;
+  text-align: center;
+  max-width: 672px;
+  margin: 0 auto 80px;
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .philosophy__title {
+    font-size: 3rem;
+  }
+}
+
+/* ---------- Grid ---------- */
+.philosophy__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: rgba(28, 27, 24, 0.1);
+}
+
+@media (min-width: 640px) {
+  .philosophy__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .philosophy__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------- Card ---------- */
+.philosophy__card {
+  background: #EFE9DE;
+  padding: 40px;
+}
+
+@media (min-width: 768px) {
+  .philosophy__card {
+    padding: 48px;
+  }
+}
+
+/* ---------- Icon ---------- */
+.philosophy__icon {
+  color: #A9793C;
+  margin-bottom: 24px;
+  display: block;
+}
+
+/* ---------- Card Title ---------- */
+.philosophy__card-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1C1B18;
+  margin: 0 0 12px;
+}
+
+/* ---------- Card Copy ---------- */
+.philosophy__card-copy {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(28, 27, 24, 0.6);
+  margin: 0;
+}

@@ -1,0 +1,253 @@
+/* ============================================================================
+   ██  FEATURED PROJECTS SHOWCASE
+   ============================================================================ */
+
+.pfeat {
+  width: 100%;
+  padding: 48px 24px 48px;
+  background: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .pfeat {
+    padding: 56px 40px 60px;
+  }
+}
+
+.pfeat__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.pfeat__head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .pfeat__head {
+    margin-bottom: 56px;
+  }
+}
+
+.pfeat__head-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------- Eyebrow — GOLDEN ---------- */
+.pfeat__eyebrow {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #a8813e;
+  margin: 0;
+}
+
+/* ---------- Subtitle — Greyish ---------- */
+.pfeat__subtitle {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: rgba(28, 27, 24, 0.5);
+  margin: 0;
+}
+
+/* ---------- Title — BLACK ---------- */
+.pfeat__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #1C1B18;
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* ---------- Mobile-only ---------- */
+.pfeat__eyebrow--mobile,
+.pfeat__subtitle--mobile {
+  display: none;
+}
+
+/* ============================================================
+   VIEW ALL
+   ============================================================ */
+
+.pfeat__viewall {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #a8813e;
+  white-space: nowrap;
+
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid #a8813e;
+
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.pfeat__viewall svg {
+  transition: transform 0.3s ease;
+  width: 14px;
+  height: 14px;
+}
+
+.pfeat__viewall:hover {
+  color: #7a5f2e;
+  border-color: #7a5f2e;
+}
+
+.pfeat__viewall:hover svg {
+  transform: translateX(3px);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .pfeat {
+    padding: 36px 20px 40px;
+  }
+
+  .pfeat__head {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 28px;
+  }
+
+  .pfeat__eyebrow--desktop,
+  .pfeat__title--desktop {
+    display: none;
+  }
+
+  .pfeat__viewall {
+    display: none;
+  }
+
+  .pfeat__eyebrow--mobile {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.28em;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .pfeat__subtitle--mobile {
+    display: block;
+    font-size: 0.75rem;
+    text-align: center;
+    margin: 8px auto 0;
+  }
+
+  .pfeat__head-left {
+    gap: 0;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   GRID
+   ============================================================ */
+
+.pfeat__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .pfeat__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pfeat__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* ============================================================
+   LOAD MORE
+   ============================================================ */
+
+.pfeat__load {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.pfeat__load-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 4px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #a8813e;
+  cursor: pointer;
+
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.pfeat__load-btn::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 2px;
+  height: 1px;
+  background: #a8813e;
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+
+.pfeat__load-btn:hover {
+  color: #7a5f2e;
+}
+
+.pfeat__load-btn:hover::after {
+  background: #7a5f2e;
+  transform: scaleX(0.7);
+}
+
+@media (max-width: 640px) {
+  .pfeat__load {
+    margin-top: 32px;
+  }
+  .pfeat__load-btn {
+    font-size: 0.68rem;
+  }
+}

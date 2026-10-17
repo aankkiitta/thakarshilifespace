@@ -1,0 +1,152 @@
+.jmh-gallery {
+  width: 100%;
+  padding: 50px 0 60px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.jmh-gallery__inner { max-width: 100%; margin: 0 auto; }
+
+.jmh-gallery__title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #0f172a;
+  margin: 0 0 40px;
+  padding: 0 20px;
+}
+
+.jmh-gallery__wrap {
+  position: relative;
+  padding: 0 70px;
+}
+
+.jmh-gallery__viewport { overflow: hidden; width: 100%; }
+
+.jmh-gallery__track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.jmh-gallery__card {
+  position: relative;
+  flex-shrink: 0;
+  width: calc((100% - 48px) / 3);
+  aspect-ratio: 4 / 3;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #1e293b;
+}
+
+.jmh-gallery__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.jmh-gallery__card:hover img { transform: scale(1.04); }
+
+.jmh-gallery__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+}
+
+.jmh-gallery__card::before {
+  content: "";
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1e40af;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.jmh-gallery__card.is-active::before { opacity: 1; }
+
+.jmh-gallery__label {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  z-index: 2;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.jmh-gallery__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1;
+  background: transparent;
+  color: #10b981;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.jmh-gallery__arrow:hover {
+  color: #059669;
+  transform: translateY(-50%) scale(1.15);
+}
+
+.jmh-gallery__arrow--prev { left: 8px; }
+.jmh-gallery__arrow--next { right: 8px; }
+
+@media (max-width: 1024px) {
+  .jmh-gallery__title { font-size: 32px; margin-bottom: 32px; }
+  .jmh-gallery__wrap { padding: 0 55px; }
+  .jmh-gallery__label { font-size: 18px; bottom: 16px; left: 18px; }
+}
+
+@media (max-width: 768px) {
+  .jmh-gallery { padding: 40px 0 50px; }
+  .jmh-gallery__title { font-size: 26px; margin-bottom: 28px; }
+  .jmh-gallery__wrap { padding: 0 44px; }
+  .jmh-gallery__card { width: calc((100% - 24px) / 2); }
+  .jmh-gallery__track { gap: 24px; }
+  .jmh-gallery__label { font-size: 16px; bottom: 14px; left: 16px; }
+  .jmh-gallery__arrow { font-size: 34px; width: 40px; height: 40px; }
+  .jmh-gallery__arrow--prev { left: 4px; }
+  .jmh-gallery__arrow--next { right: 4px; }
+}
+
+@media (max-width: 640px) {
+  .jmh-gallery { padding: 35px 0 45px; }
+  .jmh-gallery__title { font-size: 22px; margin-bottom: 24px; }
+  .jmh-gallery__wrap { padding: 0 36px; }
+  .jmh-gallery__card { width: 100%; aspect-ratio: 4 / 3; }
+  .jmh-gallery__track { gap: 20px; }
+  .jmh-gallery__label { font-size: 18px; bottom: 16px; left: 18px; }
+  .jmh-gallery__arrow { width: 34px; height: 34px; font-size: 30px; }
+  .jmh-gallery__arrow--prev { left: 2px; }
+  .jmh-gallery__arrow--next { right: 2px; }
+  .jmh-gallery__card::before { width: 6px; height: 6px; bottom: 14px; }
+}

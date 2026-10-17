@@ -1,0 +1,68 @@
+-- ============================================================
+--  LUXE ESTATE — DATABASE SCHEMA
+--  DB: u156962179_Victus
+-- ============================================================
+
+USE u156962179_Victus;
+
+-- ------------------------------------------------------------
+-- TABLE 1: thakarshi_enquiries
+-- Enquiry form + Contact form submissions
+-- ------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS thakarshi_enquiries (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  mobile VARCHAR(20) NOT NULL,
+  email VARCHAR(255) DEFAULT NULL,
+  config VARCHAR(100) DEFAULT NULL,
+  message TEXT DEFAULT NULL,
+  source VARCHAR(100) DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_created (created_at),
+  INDEX idx_mobile (mobile),
+  INDEX idx_source (source)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ------------------------------------------------------------
+-- TABLE 2: thakarshi_reviews
+-- Testimonials / Reviews
+-- ------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS thakarshi_reviews (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  role VARCHAR(255) DEFAULT NULL,
+  review TEXT NOT NULL,
+  rating TINYINT DEFAULT 5,
+  photo VARCHAR(500) DEFAULT NULL,
+  is_active TINYINT(1) DEFAULT 1,
+  sort_order INT DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_created (created_at),
+  INDEX idx_active (is_active, sort_order)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ------------------------------------------------------------
+-- SAMPLE DATA — Enquiries
+-- ------------------------------------------------------------
+INSERT INTO thakarshi_enquiries (name, mobile, email, config, message, source)
+VALUES 
+  ('Ankita Sharma', '9876543210', 'ankita@example.com', '2 BHK', 'Interested in site visit', 'paradise-valley'),
+  ('Rajesh Kumar', '9123456789', 'rajesh@example.com', 'Villa', 'Please call me', 'palm-galaxy'),
+  ('Priya Deshmukh', '9988776655', NULL, '3 BHK', 'Weekend site visit', 'elite-residences'),
+  ('Test User', '9000000000', 'test@example.com', 'General Enquiry', 'Interested in your project', 'contact-page');
+
+-- ------------------------------------------------------------
+-- SAMPLE DATA — Reviews / Testimonials
+-- ------------------------------------------------------------
+INSERT INTO thakarshi_reviews (name, role, review, rating, sort_order)
+VALUES 
+  ('Ankita Sharma', 'Palm Galaxy', 'Excellent service and quality construction. Very happy with our new home.', 5, 1),
+  ('Rajesh Kumar', 'Elite Residences', 'Highly recommended for premium living. The team was professional throughout.', 5, 2),
+  ('Priya Deshmukh', 'Paradise Valley', 'Seamless experience from booking to possession. Loving every moment here.', 5, 3),
+  ('Mohit Verma', 'Jai Mari Home', 'Great value for money and location. Amenities are top-notch.', 4, 4);
+
+-- ------------------------------------------------------------
+-- VERIFY
+-- ------------------------------------------------------------
+SELECT * FROM thakarshi_enquiries;
+SELECT * FROM thakarshi_reviews;

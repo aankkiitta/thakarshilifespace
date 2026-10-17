@@ -1,0 +1,660 @@
+/* ============================================================================
+   ██  COMPLETED PROJECTS SHOWCASE
+   ============================================================================ */
+
+.cfeat {
+  width: 100%;
+  padding: 0 24px 30px;    /* ✅ 80px → 30px */
+  background: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .cfeat {
+    padding: 0 40px 40px;  /* ✅ 100px → 40px */
+  }
+}
+
+.cfeat__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.cfeat__head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .cfeat__head {
+    margin-bottom: 48px;
+  }
+}
+
+.cfeat__head-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cfeat__eyebrow {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #a8813e;
+  margin: 0;
+}
+
+.cfeat__subtitle {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  color: rgba(28, 27, 24, 0.5);
+  margin: 0;
+  flex-basis: 100%;
+}
+
+.cfeat__subtitle--desktop {
+  display: none;
+}
+
+.cfeat__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #1C1B18;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.cfeat__eyebrow--mobile,
+.cfeat__subtitle--mobile {
+  display: none;
+}
+
+/* ============================================================
+   VIEW ALL
+   ============================================================ */
+
+.cfeat__viewall {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #a8813e;
+  white-space: nowrap;
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid #a8813e;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.cfeat__viewall svg {
+  transition: transform 0.3s ease;
+  width: 14px;
+  height: 14px;
+}
+
+.cfeat__viewall:hover {
+  color: #7a5f2e;
+  border-color: #7a5f2e;
+}
+
+.cfeat__viewall:hover svg {
+  transform: translateX(3px);
+}
+
+@media (min-width: 768px) {
+  .cfeat__head {
+    flex-wrap: wrap;
+  }
+  .cfeat__head-left {
+    order: 1;
+  }
+  .cfeat__viewall {
+    order: 2;
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 640px) {
+  .cfeat {
+    padding: 16px 20px 30px;    /* ✅ 72px → 30px */
+  }
+  .cfeat__head {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    margin-bottom: 28px;
+  }
+  .cfeat__eyebrow--desktop,
+  .cfeat__title--desktop,
+  .cfeat__subtitle--desktop,
+  .cfeat__viewall {
+    display: none;
+  }
+  .cfeat__eyebrow--mobile {
+    display: block;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #a8813e;
+    margin: 0 auto 8px;
+    text-align: center;
+  }
+  .cfeat__subtitle--mobile {
+    display: block;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: rgba(28, 27, 24, 0.5);
+    margin: 0 auto;
+    max-width: 320px;
+    text-align: center;
+  }
+}
+
+/* ============================================================
+   GRID
+   ============================================================ */
+
+.cfeat__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .cfeat__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cfeat__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* ============================================================
+   CARD
+   ============================================================ */
+
+.cfeat__card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #1C1B18;
+  text-decoration: none;
+  color: inherit;
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
+}
+
+.cfeat__card:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.cfeat__card-image-wrap {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .cfeat__card-image-wrap {
+    height: 480px;
+  }
+}
+
+.cfeat__card-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.cfeat__card:hover .cfeat__card-image {
+  transform: scale(1.06);
+}
+
+.cfeat__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(18, 17, 16, 0.95) 0%,
+    rgba(18, 17, 16, 0.15) 50%,
+    transparent 100%
+  );
+  opacity: 0.85;
+  transition: opacity 0.35s ease;
+}
+
+.cfeat__card:hover .cfeat__card-overlay {
+  opacity: 1;
+}
+
+/* ============================================================
+   DIAGONAL RIBBON
+   ============================================================ */
+
+.cfeat__ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.cfeat__ribbon span {
+  position: absolute;
+  display: block;
+  top: 32px;
+  left: -36px;
+  width: 200px;
+  padding: 9px 0;
+  background: #16a34a;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  transform: rotate(-45deg);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+}
+
+/* ============================================================
+   CARD CONTENT
+   ============================================================ */
+
+.cfeat__card-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .cfeat__card-content {
+    padding: 28px;
+  }
+}
+
+.cfeat__card:hover .cfeat__card-content {
+  transform: translateY(-4px);
+}
+
+.cfeat__card-location {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #C79A5B;
+  margin: 0 0 8px;
+}
+
+.cfeat__card-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #F7F4EE;
+  margin: 0 0 12px;
+}
+
+.cfeat__card-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(8px);
+  transition:
+    max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease,
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: max-height, opacity, transform;
+}
+
+.cfeat__card:hover .cfeat__card-details {
+  max-height: 120px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cfeat__card-details-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(247, 244, 238, 0.15);
+}
+
+.cfeat__card-config {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.75rem;
+  color: rgba(247, 244, 238, 0.7);
+  margin: 0;
+}
+
+.cfeat__card-price {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #F7F4EE;
+  margin: 2px 0 0;
+}
+
+.cfeat__card-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #C79A5B;
+  color: #C79A5B;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.cfeat__card:hover .cfeat__card-arrow {
+  background: #C79A5B;
+  color: #121110;
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   LOAD MORE
+   ============================================================ */
+
+.cfeat__load {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;      /* ✅ 40px → 30px */
+  margin-bottom: 0;      /* ✅ add — gap khatam */
+}
+
+.cfeat__load-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 4px;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #a8813e;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.cfeat__load-btn::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 2px;
+  height: 1px;
+  background: #a8813e;
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+
+.cfeat__load-btn:hover {
+  color: #7a5f2e;
+}
+
+.cfeat__load-btn:hover::after {
+  background: #7a5f2e;
+  transform: scaleX(0.7);
+}
+
+@media (max-width: 640px) {
+  .cfeat__load {
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+  .cfeat__load-btn {
+    font-size: 0.68rem;
+  }
+  .cfeat__ribbon {
+    width: 110px;
+    height: 110px;
+  }
+  .cfeat__ribbon span {
+    top: 22px;
+    left: -34px;
+    width: 160px;
+    padding: 7px 0;
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+  }
+}
+
+/* ============================================================
+   IMAGE FIT FIX
+   ============================================================ */
+
+.cfeat,
+.cfeat * {
+  box-sizing: border-box;
+}
+
+.cfeat__grid {
+  width: 100%;
+  align-items: stretch;
+}
+
+.cfeat__card {
+  min-width: 0;
+  isolation: isolate;
+}
+
+.cfeat__card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 36vw, 480px);
+  overflow: hidden;
+  background: #eee9e1;
+}
+
+.cfeat__card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.cfeat__card-image--top { object-position: center top; }
+.cfeat__card-image--bottom { object-position: center bottom; }
+.cfeat__card-image--left { object-position: left center; }
+.cfeat__card-image--right { object-position: right center; }
+
+.cfeat__card-overlay { z-index: 1; pointer-events: none; }
+.cfeat__card-content { z-index: 2; }
+.cfeat__ribbon { z-index: 3; }
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .cfeat {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+  .cfeat__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+  .cfeat__card-image-wrap {
+    height: 420px;
+  }
+  .cfeat__card-content {
+    padding: 22px;
+  }
+  .cfeat__card-title {
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .cfeat {
+    width: 100%;
+    padding: 16px 16px 30px;   /* ✅ 56px → 30px */
+    overflow: hidden;
+  }
+  .cfeat__inner {
+    width: 100%;
+    max-width: 100%;
+  }
+  .cfeat__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    width: 100%;
+  }
+  .cfeat__card {
+    width: 100%;
+    max-width: 100%;
+  }
+  .cfeat__card-image-wrap {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    min-height: 0;
+    max-height: 520px;
+  }
+  .cfeat__card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: none;
+  }
+  .cfeat__card:hover .cfeat__card-image {
+    transform: none;
+  }
+  .cfeat__card-overlay {
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgba(18, 17, 16, 0.94) 0%,
+      rgba(18, 17, 16, 0.45) 38%,
+      rgba(18, 17, 16, 0.04) 75%,
+      transparent 100%
+    );
+  }
+  .cfeat__card-content {
+    padding: 20px;
+    transform: none;
+  }
+  .cfeat__card:hover .cfeat__card-content {
+    transform: none;
+  }
+  .cfeat__card-details {
+    max-height: 140px;
+    opacity: 1;
+    overflow: visible;
+    transform: none;
+  }
+  .cfeat__card-details-inner {
+    gap: 12px;
+  }
+  .cfeat__card-title {
+    font-size: clamp(1.55rem, 7vw, 2rem);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .cfeat__card-location {
+    font-size: 0.62rem;
+    margin-bottom: 6px;
+  }
+  .cfeat__card-config { font-size: 0.72rem; }
+  .cfeat__card-price { font-size: 0.82rem; }
+  .cfeat__card-arrow {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+  }
+  .cfeat__ribbon {
+    width: 108px;
+    height: 108px;
+  }
+  .cfeat__ribbon span {
+    top: 22px;
+    left: -35px;
+    width: 158px;
+    padding: 7px 0;
+    font-size: 9px;
+  }
+}
+
+/* Very narrow phones */
+@media (max-width: 380px) {
+  .cfeat {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  .cfeat__card-image-wrap {
+    aspect-ratio: 3 / 4;
+  }
+  .cfeat__card-content {
+    padding: 16px;
+  }
+  .cfeat__card-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cfeat__card-image,
+  .cfeat__card-overlay,
+  .cfeat__card-content,
+  .cfeat__card-details,
+  .cfeat__card-arrow {
+    transition: none !important;
+  }
+}

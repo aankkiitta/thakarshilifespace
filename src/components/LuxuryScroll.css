@@ -1,0 +1,210 @@
+/* ============================================================================
+   ██  LUXURY SCROLL
+   ============================================================================ */
+
+.luxury {
+  background: #1C1B18;
+  padding: 96px 0;
+}
+
+@media (min-width: 768px) {
+  .luxury {
+    padding: 128px 0;
+  }
+}
+
+.luxury__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+.luxury__head {
+  padding: 0 24px;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .luxury__head {
+    padding: 0 40px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.luxury__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.25rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #F7F4EE;
+  margin: 0;
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .luxury__title {
+    font-size: 3rem;
+  }
+}
+
+/* ---------- Arrows ---------- */
+.luxury__nav {
+  display: flex;
+  gap: 12px;
+}
+
+.luxury__arrow {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(247, 244, 238, 0.25);
+  background: transparent;
+  color: #F7F4EE;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.luxury__arrow:hover {
+  border-color: #C79A5B;
+  color: #C79A5B;
+}
+
+/* ---------- Track ---------- */
+.luxury__track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 0 24px 16px;
+  scroll-snap-type: x mandatory;
+
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.luxury__track::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .luxury__track {
+    padding: 0 40px 16px;
+  }
+}
+
+/* ---------- Card ---------- */
+.luxury__card {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  width: 86vw;
+  height: 62vh;
+  min-height: 420px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (min-width: 640px) {
+  .luxury__card {
+    width: 70vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .luxury__card {
+    width: 46vw;
+  }
+}
+
+/* ---------- Card Image ---------- */
+.luxury__card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease-out;
+}
+
+.luxury__card:hover .luxury__card-image {
+  transform: scale(1.05);
+}
+
+/* ---------- Card Overlay ---------- */
+.luxury__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(18, 17, 16, 0.9) 0%,
+    rgba(18, 17, 16, 0.1) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ---------- Card Content ---------- */
+.luxury__card-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 32px;
+}
+
+/* Location */
+.luxury__card-location {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #C79A5B;
+  margin: 0 0 8px;
+}
+
+/* Title */
+.luxury__card-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #F7F4EE;
+  margin: 0 0 12px;
+}
+
+/* Description */
+.luxury__card-desc {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(247, 244, 238, 0.7);
+  max-width: 384px;
+  margin: 0 0 20px;
+}
+
+/* Link */
+.luxury__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #F7F4EE;
+  transition: color 0.3s ease;
+}
+
+.luxury__card:hover .luxury__card-link {
+  color: #C79A5B;
+}

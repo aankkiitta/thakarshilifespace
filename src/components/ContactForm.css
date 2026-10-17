@@ -1,0 +1,272 @@
+/* ============================================================================
+   ██  CONTACT FORM
+   ============================================================================ */
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px 32px;
+}
+
+@media (min-width: 640px) {
+  .contact-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Full width fields */
+.contact-form__field--full {
+  grid-column: 1 / -1;
+}
+
+/* ============================================================================
+   ██  FIELD
+   ============================================================================ */
+
+.contact-form__field {
+  display: block;
+}
+
+.contact-form__label {
+  display: block;
+  margin-bottom: 8px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.contact-form.is-dark .contact-form__label {
+  color: rgba(247, 244, 238, 0.6);
+}
+
+.contact-form.is-light .contact-form__label {
+  color: rgba(28, 27, 24, 0.6);
+}
+
+/* ---------- Input / Select / Textarea ---------- */
+.contact-form__input {
+  width: 100%;
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9375rem;
+
+  transition: border-color 0.3s ease;
+}
+
+/* Dark variant */
+.contact-form.is-dark .contact-form__input {
+  color: #F7F4EE;
+  border-bottom-color: rgba(247, 244, 238, 0.25);
+}
+
+.contact-form.is-dark .contact-form__input::placeholder {
+  color: rgba(247, 244, 238, 0.4);
+}
+
+.contact-form.is-dark .contact-form__input:focus {
+  border-bottom-color: #C79A5B;
+}
+
+/* Light variant */
+.contact-form.is-light .contact-form__input {
+  color: #1C1B18;
+  border-bottom-color: rgba(28, 27, 24, 0.25);
+}
+
+.contact-form.is-light .contact-form__input::placeholder {
+  color: rgba(28, 27, 24, 0.4);
+}
+
+.contact-form.is-light .contact-form__input:focus {
+  border-bottom-color: #A9793C;
+}
+
+/* ---------- Select Option ---------- */
+.contact-form__input option {
+  color: #1C1B18;
+  background: #F7F4EE;
+}
+
+/* ---------- Error ---------- */
+.contact-form__error {
+  margin: 8px 0 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.75rem;
+  color: #C79A5B;
+}
+
+/* ============================================================================
+   ██  CONSENT (Checkbox + Text)
+   ============================================================================ */
+
+.contact-form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.contact-form__checkbox {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  accent-color: #A9793C;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.contact-form__consent-text {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.contact-form.is-dark .contact-form__consent-text {
+  color: rgba(247, 244, 238, 0.55);
+}
+
+.contact-form.is-light .contact-form__consent-text {
+  color: rgba(28, 27, 24, 0.55);
+}
+
+/* ============================================================================
+   ██  SUBMIT BUTTON
+   ============================================================================ */
+
+.contact-form__submit-wrap {
+  margin-top: 8px;
+}
+
+.contact-form__submit {
+  padding: 16px 36px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.contact-form.is-dark .contact-form__submit {
+  background: #A9793C;
+  color: #121110;
+}
+
+.contact-form.is-dark .contact-form__submit:hover {
+  background: #C79A5B;
+}
+
+.contact-form.is-light .contact-form__submit {
+  background: #1C1B18;
+  color: #F7F4EE;
+}
+
+.contact-form.is-light .contact-form__submit:hover {
+  background: #A9793C;
+}
+
+/* ============================================================================
+   ██  SUCCESS STATE
+   ============================================================================ */
+
+.contact-form__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 64px 24px;
+}
+
+.contact-form__success.is-dark {
+  color: #F7F4EE;
+}
+
+.contact-form__success.is-light {
+  color: #1C1B18;
+}
+
+.contact-form__success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(169, 121, 60, 0.2);
+  border: 1px solid #A9793C;
+  color: #C79A5B;
+  margin-bottom: 24px;
+}
+
+.contact-form__success-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.875rem;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.contact-form__success-desc {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  max-width: 384px;
+  margin: 0;
+}
+
+.contact-form__success.is-dark .contact-form__success-desc {
+  color: rgba(247, 244, 238, 0.65);
+}
+
+.contact-form__success.is-light .contact-form__success-desc {
+  color: rgba(28, 27, 24, 0.65);
+}
+
+.contact-form__success-reset {
+  margin-top: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.contact-form__success-reset:hover {
+  color: #C79A5B;
+}
+
+
+
+
+
+/* ---------- Disabled State ---------- */
+.contact-form__input:disabled,
+.contact-form__submit:disabled,
+.contact-form__checkbox:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-form__submit:disabled:hover {
+  /* Disable hover effect when disabled */
+  background: inherit;
+}

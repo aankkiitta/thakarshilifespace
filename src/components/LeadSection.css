@@ -1,0 +1,42 @@
+/* ============================================================================
+   ██  LEAD SECTION — Dark Get In Touch
+   ============================================================================ */
+
+.lead {
+  background: #121110;
+  padding: 96px 24px;
+}
+
+@media (min-width: 768px) {
+  .lead {
+    padding: 128px 40px;
+  }
+}
+
+.lead__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ---------- Head ---------- */
+.lead__head {
+  margin-bottom: 56px;
+  text-align: center;
+}
+
+/* ---------- Title ---------- */
+.lead__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.25rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #F7F4EE;
+  margin: 0;
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .lead__title {
+    font-size: 3rem;
+  }
+}

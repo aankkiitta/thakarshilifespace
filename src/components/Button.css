@@ -1,0 +1,116 @@
+/* ============================================================================
+   ██  BUTTON
+   ============================================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 32px;
+  border: 1px solid transparent;
+  background: transparent;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ============================================================================
+   ██  LIGHT BACKGROUND VARIANTS (default)
+   ============================================================================ */
+
+/* Solid — dark bg, ivory text */
+.btn--solid {
+  background: #1C1B18;
+  color: #F7F4EE;
+  border-color: #1C1B18;
+}
+
+.btn--solid:hover {
+  background: #A9793C;
+  border-color: #A9793C;
+  color: #F7F4EE;
+}
+
+/* Outline — transparent, dark border + text */
+.btn--outline {
+  background: transparent;
+  color: #1C1B18;
+  border-color: rgba(28, 27, 24, 0.3);
+}
+
+.btn--outline:hover {
+  border-color: #A9793C;
+  color: #A9793C;
+}
+
+/* Ghost — no border */
+.btn--ghost {
+  background: transparent;
+  color: #1C1B18;
+  border-color: transparent;
+}
+
+.btn--ghost:hover {
+  color: #A9793C;
+}
+
+/* ============================================================================
+   ██  DARK BACKGROUND VARIANTS (Hero, LeadSection, etc.)
+   ============================================================================ */
+
+/* Solid dark — bronze bg, dark text */
+.btn--dark.btn--solid {
+  background: #A9793C;
+  color: #121110;
+  border-color: #A9793C;
+}
+
+.btn--dark.btn--solid:hover {
+  background: #C79A5B;
+  border-color: #C79A5B;
+  color: #121110;
+}
+
+/* Outline dark — ivory border + text */
+.btn--dark.btn--outline {
+  background: transparent;
+  color: #F7F4EE;
+  border-color: rgba(247, 244, 238, 0.4);
+}
+
+.btn--dark.btn--outline:hover {
+  border-color: #C79A5B;
+  color: #C79A5B;
+}
+
+/* Ghost dark */
+.btn--dark.btn--ghost {
+  background: transparent;
+  color: #F7F4EE;
+  border-color: transparent;
+}
+
+.btn--dark.btn--ghost:hover {
+  color: #C79A5B;
+}
+
+/* ============================================================================
+   ██  RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 640px) {
+  .btn {
+    padding: 14px 24px;
+    font-size: 0.65rem;
+  }
+}

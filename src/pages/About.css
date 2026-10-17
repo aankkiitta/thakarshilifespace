@@ -1,0 +1,165 @@
+/* ============================================================================
+   ██  INTRO SECTION — Logo + Title + Para + Link
+   ============================================================================ */
+
+.about-us-page {
+  width: 100%;
+  background: #ffffff;
+  padding: 10px 24px 40px;   /* ✅ Top gap kam kiya (10px) */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .about-us-page {
+    padding: 10px 40px 50px;
+  }
+}
+
+.about-us-page__inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Logo ─────────────────────────────── */
+.about-us-page__logo-wrap {
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-us-page__logo {
+  height: 180px;             /* ✅ Logo bada kiya */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Title ────────────────────────────── */
+.about-us-page__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.8rem;         /* ✅ Font chota kiya taaki ek line mein aaye */
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #1C1B18;
+  margin: 0 0 18px;
+  max-width: 100%;
+  white-space: nowrap;       /* ✅ Force single line */
+}
+
+/* ── Description ──────────────────────── */
+.about-us-page__desc {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(28, 27, 24, 0.65);
+  max-width: 1000px;
+  margin: 0 0 28px;
+  text-align: center;
+}
+
+/* ── Website Link ─────────────────────── */
+.about-us-page__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1C1B18;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.about-us-page__link-icon {
+  color: #A9793C;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.about-us-page__link:hover {
+  color: #A9793C;
+}
+
+.about-us-page__link:hover .about-us-page__link-icon {
+  transform: rotate(15deg);
+  color: #C79A5B;
+}
+
+/* ============================================================================
+   ██  RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 1024px) {
+  .about-us-page {
+    padding: 10px 40px 40px;
+  }
+  .about-us-page__logo {
+    height: 150px;           /* Tablet pe logo */
+  }
+  .about-us-page__title {
+    font-size: 2.3rem;       /* Tablet pe font */
+    white-space: nowrap;
+  }
+  .about-us-page__desc {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-us-page {
+    padding: 10px 20px 30px;
+  }
+  .about-us-page__logo-wrap {
+    margin-bottom: 12px;
+  }
+  .about-us-page__logo {
+    height: 130px;           /* Mobile pe logo */
+  }
+  .about-us-page__title {
+    font-size: 1.5rem;       /* ✅ Mobile pe chota font taaki ek line mein aaye */
+    margin-bottom: 14px;
+    white-space: nowrap;     /* Force single line */
+  }
+  .about-us-page__desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    text-align: left;
+    margin-bottom: 22px;
+  }
+  .about-us-page__link {
+    font-size: 0.85rem;
+  }
+  .about-us-page__link-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-us-page {
+    padding: 10px 16px 24px;
+  }
+  .about-us-page__logo {
+    height: 110px;           /* Chote phone pe logo */
+  }
+  .about-us-page__title {
+    font-size: 1.3rem;       /* ✅ Sabse chota font, still 1 line */
+  }
+  .about-us-page__desc {
+    font-size: 0.8rem;
+  }
+  .about-us-page__link {
+    font-size: 0.8rem;
+  }
+}

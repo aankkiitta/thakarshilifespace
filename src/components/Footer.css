@@ -1,0 +1,231 @@
+/* ============================================================
+   FOOTER — LIGHT GREY THEME
+   ============================================================ */
+
+.footer {
+  background-color: #f9fafb;
+  color: #1C1B18;
+  padding: 80px 24px 0;
+  font-family: "Manrope", sans-serif;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  padding-bottom: 60px;
+}
+
+/* ✅ Wrapper to group links on mobile */
+.footer__links-grid {
+  display: contents; /* Desktop par normal grid items behave karega */
+}
+
+/* Brand Column */
+.footer__col--brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer__logo-link {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.footer__logo-img {
+  height: 160px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Social Icons */
+.footer__socials {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.footer__socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #1C1B18;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.footer__socials a:hover {
+  background: #c79a5b;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* Headings & Links */
+.footer__heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  color: #1C1B18;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.footer__links,
+.footer__contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__links li {
+  margin-bottom: 14px;
+}
+
+.footer__links a {
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer__links a:hover {
+  color: #c79a5b;
+}
+
+/* Contact Details */
+.footer__contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.footer__contact li span {
+  display: block;
+}
+
+.footer__icon {
+  color: #c79a5b;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ============================================================
+   BOTTOM BAR
+   ============================================================ */
+
+.footer__bottom {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 24px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.footer__bottom p {
+  margin: 0;
+}
+
+.footer__crafted-text {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer__crafted-text a {
+  color: #c79a5b;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__crafted-text a:hover {
+  color: #1C1B18;
+  text-decoration: underline;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 992px) {
+  .footer__container {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  
+  .footer__col--brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding-top: 60px;
+  }
+  
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 40px;
+  }
+
+  /* ✅ Brand takes full width */
+  .footer__col--brand {
+    grid-column: 1 / -1; 
+  }
+
+  /* ✅ Quick Links & Projects become a 2-column grid */
+  .footer__links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 equal columns side-by-side */
+    gap: 24px;
+    grid-column: 1 / -1;
+  }
+
+  /* ✅ Contact takes full width */
+  .footer__container > .footer__col:last-child {
+    grid-column: 1 / -1; 
+  }
+
+  .footer__heading {
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+  }
+
+  .footer__links li {
+    margin-bottom: 10px;
+  }
+
+  .footer__links a {
+    font-size: 0.85rem;
+  }
+
+  .footer__logo-img {
+    height: 120px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+}

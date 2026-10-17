@@ -1,0 +1,35 @@
+/* ============================================================================
+   9. ██  FLOOR PLANS SECTION
+   ============================================================================ */
+.prd-plans { width: 100%; padding: 70px 60px; background: #ffffff; }
+.prd-plans__inner { max-width: 1200px; margin: 0 auto; }
+.prd-plans__head { text-align: center; margin-bottom: 55px; }
+.prd-plans__eyebrow { font-family: "Plus Jakarta Sans", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #0f4c5c; margin: 0 0 8px; }
+.prd-plans__title { font-family: "Plus Jakarta Sans", sans-serif; font-size: 26px; font-weight: 800; letter-spacing: 1px; line-height: 1.15; text-transform: uppercase; color: #0f172a; margin: 0 0 14px; }
+.prd-plans__title span { color: #0f4c5c; }
+.prd-plans__divider { display: block; width: 40px; height: 2px; background: #0f4c5c; margin: 0 auto; }
+.prd-plans__row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 60px; align-items: center; margin-bottom: 80px; }
+.prd-plans__row:last-child { margin-bottom: 0; }
+.prd-plans__row--reverse .prd-plans__media { order: 1; }
+.prd-plans__row--reverse .prd-plans__content { order: 2; }
+.prd-plans__content { width: 100%; max-width: 520px; }
+.prd-plans__name { font-family: "Plus Jakarta Sans", sans-serif; font-size: 32px; font-weight: 800; letter-spacing: 0.4px; line-height: 1.1; text-transform: uppercase; color: #0f4c5c; margin: 0 0 6px; }
+.prd-plans__tagline { font-family: "Plus Jakarta Sans", sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.2px; line-height: 1.4; color: #94a3b8; margin: 0 0 20px; }
+.prd-plans__lead { font-family: "Plus Jakarta Sans", sans-serif; font-size: 19px; font-weight: 700; letter-spacing: 0.2px; line-height: 1.4; color: #0f172a; margin: 0 0 18px; }
+.prd-plans__desc { font-family: "Plus Jakarta Sans", sans-serif; font-size: 13.5px; font-weight: 400; line-height: 1.75; color: #64748b; margin: 0 0 24px; }
+.prd-plans__specs { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px; }
+.prd-plans__specs li { display: flex; align-items: baseline; gap: 18px; font-family: "Plus Jakarta Sans", sans-serif; font-size: 13.5px; line-height: 1.5; }
+.prd-plans__label { font-weight: 700; color: #0f4c5c; min-width: 110px; flex-shrink: 0; }
+.prd-plans__value { font-weight: 400; color: #1e293b; }
+.prd-plans__btn { display: inline-block; padding: 8px 22px; font-family: "Plus Jakarta Sans", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; text-decoration: none; text-align: center; color: #0f4c5c; background: transparent; border: 1.5px dotted #0f4c5c; border-radius: 100px; transition: all 0.35s ease; }
+.prd-plans__btn:hover { background: #0f4c5c; color: #ffffff; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15, 76, 92, 0.25); border-style: solid; }
+.prd-plans__media { width: 100%; display: flex; align-items: center; justify-content: center; }
+.prd-plans__media img { width: 100%; height: auto; max-width: 600px; display: block; object-fit: contain; filter: drop-shadow(0 10px 30px rgba(15, 23, 42, 0.08)); }
+
+/* ============================================================================
+   9.X  FLOOR PLANS RESPONSIVE
+   ============================================================================ */
+@media (max-width: 1024px) { .prd-plans { padding: 60px 40px; } .prd-plans__head { margin-bottom: 45px; } .prd-plans__title { font-size: 22px; } .prd-plans__row { gap: 40px; margin-bottom: 65px; } .prd-plans__name { font-size: 26px; } .prd-plans__tagline { font-size: 13px; } .prd-plans__lead { font-size: 17px; } .prd-plans__desc { font-size: 13px; } .prd-plans__specs li { font-size: 13px; } .prd-plans__label { min-width: 100px; } .prd-plans__btn { padding: 7px 18px; font-size: 9.5px; } }
+@media (max-width: 900px) { .prd-plans__row, .prd-plans__row--reverse { grid-template-columns: 1fr; gap: 30px; margin-bottom: 55px; } .prd-plans__content { max-width: 100%; order: 1; } .prd-plans__media { order: 2; } .prd-plans__row--reverse .prd-plans__content { order: 1; } .prd-plans__row--reverse .prd-plans__media { order: 2; } .prd-plans__media img { max-width: 100%; } }
+@media (max-width: 640px) { .prd-plans { padding: 50px 20px; } .prd-plans__head { margin-bottom: 32px; } .prd-plans__title { font-size: 20px; letter-spacing: 0.8px; } .prd-plans__eyebrow { font-size: 9px; letter-spacing: 3px; } .prd-plans__row, .prd-plans__row--reverse { gap: 22px; margin-bottom: 45px; } .prd-plans__content { max-width: 100%; order: 1; text-align: center; } .prd-plans__media { order: 2; width: 100%; } .prd-plans__row--reverse .prd-plans__content { order: 1; } .prd-plans__row--reverse .prd-plans__media { order: 2; } .prd-plans__media img { max-width: 100%; } .prd-plans__name { font-size: 22px; letter-spacing: 0.3px; margin-bottom: 4px; text-align: center; } .prd-plans__tagline { font-size: 12px; margin-bottom: 16px; text-align: center; } .prd-plans__lead { font-size: 15px; line-height: 1.4; margin-bottom: 14px; text-align: center; } .prd-plans__desc { font-size: 12px; line-height: 1.7; margin-bottom: 18px; text-align: center; } .prd-plans__specs { gap: 8px; margin-bottom: 22px; align-items: center; text-align: center; padding-left: 0; } .prd-plans__specs li { font-size: 11.5px; gap: 6px; flex-direction: row; align-items: baseline; justify-content: center; text-align: center; flex-wrap: wrap; } .prd-plans__label { min-width: auto; font-size: 11.5px; text-align: center; } .prd-plans__value { text-align: center; margin-top: 0; } .prd-plans__btn { padding: 8px 18px; font-size: 9px; letter-spacing: 1.5px; width: auto; max-width: none; display: inline-block; margin: 0 auto; text-align: center; } }
+@media (max-width: 400px) { .prd-plans { padding: 40px 16px; } .prd-plans__title { font-size: 18px; } .prd-plans__name { font-size: 20px; } .prd-plans__tagline { font-size: 11.5px; } .prd-plans__lead { font-size: 14px; } .prd-plans__desc { font-size: 11.5px; } .prd-plans__specs { padding-left: 0; gap: 6px; } .prd-plans__specs li { font-size: 11px; gap: 5px; flex-direction: row; justify-content: center; } .prd-plans__label { font-size: 11px; } .prd-plans__btn { font-size: 8.5px; padding: 7px 14px; letter-spacing: 1.4px; } }

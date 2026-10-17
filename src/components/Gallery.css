@@ -1,0 +1,517 @@
+/* =========================================
+   EVERYDAY ESCAPES GALLERY
+========================================= */
+
+.everyday-gallery,
+.everyday-gallery * {
+  box-sizing: border-box;
+}
+
+.everyday-gallery {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", Arial, Helvetica, sans-serif;
+  background: white;
+}
+
+.escape-gallery {
+  width: 100%;
+  padding: 32px 0 40px;
+  overflow: hidden;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.gallery-heading {
+  text-align: center;
+  margin: 0 0 32px;
+  color: #a8813e;
+}
+
+.gallery-heading span {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.heading-line {
+  width: 60px;
+  height: 2px;
+  background: #a8813e;
+  margin: 12px auto 0;
+  opacity: 0.7;
+}
+
+/* =========================================
+   VIEWPORT
+========================================= */
+
+.gallery-viewport {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  overflow: hidden;
+}
+
+.gallery-track {
+  position: absolute;
+  inset: 0;
+}
+
+/* =========================================
+   SLIDES
+========================================= */
+
+.gallery-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 62%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: none;
+  background: #222;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translate(-50%, -50%) scale(0.97);
+
+  transition:
+    left 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    width 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 600ms ease,
+    filter 800ms ease;
+
+  will-change: left, transform, opacity;
+}
+
+.gallery-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: 0;
+  border-radius: 0;
+  transform: scale(1.03);
+  transition: transform 1000ms ease;
+}
+
+.gallery-slide.is-active img {
+  transform: scale(1);
+}
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.25) 32%,
+    transparent 68%
+  );
+}
+
+.gallery-slide.is-prev .slide-overlay,
+.gallery-slide.is-next .slide-overlay {
+  background: rgba(255, 255, 255, 0.48);
+}
+
+/* =========================================
+   CAPTIONS — BOTTOM CENTER
+========================================= */
+
+.slide-content {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 28px;
+  z-index: 2;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(15px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition:
+    opacity 450ms ease,
+    transform 550ms ease;
+}
+
+.slide-content h2 {
+  margin: 0 0 7px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(22px, 2vw, 31px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  text-transform: uppercase;
+}
+
+.slide-content p {
+  max-width: 550px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* =========================================
+   ACTIVE SLIDE
+========================================= */
+
+.gallery-slide.is-active {
+  left: 50%;
+  width: 62%;
+  height: 100%;
+  z-index: 3;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  filter: none;
+  cursor: default;
+}
+
+.gallery-slide.is-active .slide-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 180ms;
+}
+
+/* =========================================
+   SIDE PREVIEWS
+========================================= */
+
+.gallery-slide.is-prev {
+  left: 9.5%;
+  width: 15.8%;
+  height: 76%;
+  z-index: 2;
+  opacity: 0.68;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  filter: saturate(0.8);
+  cursor: pointer;
+}
+
+.gallery-slide.is-next {
+  left: 90.5%;
+  width: 15.8%;
+  height: 76%;
+  z-index: 2;
+  opacity: 0.68;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  filter: saturate(0.8);
+  cursor: pointer;
+}
+
+.gallery-slide.is-prev .slide-content,
+.gallery-slide.is-next .slide-content {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.gallery-slide:not(.is-active):not(.is-prev):not(.is-next) .slide-content {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* =========================================
+   DESKTOP ARROWS — HIDDEN
+========================================= */
+
+.gallery-arrow {
+  display: none;
+}
+/* =========================================
+   FOOTER — DOTS ONLY
+========================================= */
+
+.gallery-footer {
+  width: 100%;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;              /* ✅ Dots centered */
+}
+
+/* ✅ Counter hidden completely */
+.gallery-counter {
+  display: none;
+}
+
+.gallery-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gallery-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: width 350ms ease, background 350ms ease;
+}
+
+.gallery-dot.is-active {
+  width: 25px;
+  border-radius: 5px;
+  background: #a8813e;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .gallery-viewport { height: 400px; }
+
+  .gallery-slide.is-active { width: 68%; }
+
+  .gallery-slide.is-prev {
+    left: 11%;
+    width: 20%;
+    height: 74%;
+  }
+
+  .gallery-slide.is-next {
+    left: 89%;
+    width: 20%;
+    height: 74%;
+  }
+}
+
+/* =========================================
+   MOBILE — Big golden chevrons (VERY VISIBLE)
+========================================= */
+
+@media (max-width: 640px) {
+  .escape-gallery {
+    padding: 24px 0 32px;
+  }
+
+  .gallery-heading {
+    margin-bottom: 20px;
+  }
+
+  .gallery-heading span {
+    font-size: 12px;
+    letter-spacing: 0.28em;
+  }
+
+  .heading-line {
+    width: 50px;
+    height: 1.5px;
+  }
+
+  .gallery-viewport {
+    height: 400px;
+  }
+
+  /* Center slide */
+  .gallery-slide.is-active {
+    left: 50%;
+    width: 86%;
+    height: 100%;
+  }
+
+  /* Side previews */
+  .gallery-slide.is-prev {
+    left: 5%;
+    width: 12%;
+    height: 70%;
+    opacity: 0.3;
+  }
+
+  .gallery-slide.is-next {
+    left: 95%;
+    width: 12%;
+    height: 70%;
+    opacity: 0.3;
+  }
+
+  /* Text centered at bottom */
+  .slide-content {
+    left: 20px;
+    right: 20px;
+    bottom: 28px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .slide-content h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .slide-content p {
+    font-size: 0.75rem;
+    text-align: center;
+    max-width: 300px;
+  }
+
+  /* ✅ Golden chevron arrows — BIG + HIGH SHADOW */
+  .gallery-arrow {
+    display: inline-flex !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+    padding: 0;
+
+    background: transparent;
+    color: #f5b53d;                     /* Brighter gold */
+    border: none;
+    border-radius: 0;
+
+    cursor: pointer;
+
+    /* ✅ DOUBLE drop-shadow for max visibility */
+    filter:
+      drop-shadow(0 0 4px rgba(0, 0, 0, 0.95))
+      drop-shadow(0 4px 12px rgba(0, 0, 0, 0.85));
+
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+
+  .gallery-arrow svg {
+    width: 44px;
+    height: 44px;
+    stroke-width: 3.5;
+    stroke: currentColor;
+  }
+
+  .gallery-arrow:hover,
+  .gallery-arrow:active {
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.15);
+  }
+
+  .gallery-prev {
+    left: 10px;
+  }
+
+  .gallery-next {
+    right: 10px;
+  }
+
+  /* Footer — dots centered */
+  .gallery-footer {
+    margin-top: 20px;
+    padding: 0 20px;
+    justify-content: center;
+  }
+
+  .gallery-counter {
+    display: none;
+  }
+
+  .gallery-dots {
+    justify-content: center;
+  }
+
+  .gallery-dot {
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+  }
+
+  .gallery-dot.is-active {
+    width: 28px;
+    background: #a8813e;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .gallery-viewport {
+    height: 360px;
+  }
+
+  .gallery-slide.is-active {
+    width: 88%;
+  }
+
+  .slide-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .slide-content p {
+    font-size: 0.7rem;
+  }
+
+  .gallery-arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .gallery-arrow svg {
+    width: 36px;
+    height: 36px;
+    stroke-width: 3.5;
+  }
+
+  .gallery-prev { left: 6px; }
+  .gallery-next { right: 6px; }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.gallery-arrow:focus-visible,
+.gallery-dot:focus-visible {
+  outline: 2px solid #a8813e;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-slide,
+  .gallery-slide img,
+  .slide-content,
+  .gallery-arrow,
+  .gallery-dot {
+    transition-duration: 0.01ms !important;
+  }
+}
