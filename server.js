@@ -25,6 +25,7 @@ const allowedOrigins = [
   "http://127.0.0.1:5173",
   "https://www.thakarshilifespaces.com",
   "https://thakarshilifespaces.com",
+    "https://forestgreen-dove-415594.hostingersite.com" // ✅ Hostinger ka temporary URL
 ];
 
 app.use(
