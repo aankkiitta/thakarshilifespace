@@ -1,39 +1,36 @@
 // ============================================================
-//  LUXE ESTATE — BACKEND SERVER
+//  LUXE ESTATE — BACKEND + FRONTEND ENTRY FILE (index.js)
 // ============================================================
 
 import express from "express";
 import mysql from "mysql2/promise";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";    // ✅ Added for Frontend path
+import fs from "fs";        // ✅ Added for File System
+import { fileURLToPath } from 'url'; // ✅ Added for __dirname in ES Modules
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ============================================================
-//  MIDDLEWARE
-// ============================================================
-app.use(express.json({ limit: "10kb" }));
-app.use(express.urlencoded({ extended: true }));
+// ✅ __dirname setup for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// ✅ CORS FIXED FOR LIVE
+// ✅ CORS FIXED (Only Live Domains)
 const allowedOrigins = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
-  "http://localhost:3000",
-  "http://127.0.0.1:3000",
-  "https://www.thakarshilifespaces.com",  // ✅ Live domain (www)
-  "https://thakarshilifespaces.com",      // ✅ Live domain (bina www)
+  "https://www.thakarshilifespaces.com",
+  "https://thakarshilifespaces.com",
 ];
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Agar request origin nahi hai (jaise Postman) toh allow karo
       if (!origin) return callback(null, true);
-      
       if (allowedOrigins.indexOf(origin) !== -1) {
         callback(null, true);
       } else {
@@ -46,7 +43,8 @@ app.use(
   })
 );
 
-// ✅ Handle OPTIONS preflight requests
+app.use(express.json({ limit: "10kb" }));
+app.use(express.urlencoded({ extended: true }));
 app.options("*", cors());
 
 // ============================================================
@@ -65,13 +63,10 @@ const pool = mysql.createPool({
   timezone: "+05:30",
 });
 
-// Test connection on startup
 (async () => {
   try {
     const connection = await pool.getConnection();
     console.log("✅ MySQL connected successfully");
-    console.log(`   Host: ${process.env.DB_HOST}`);
-    console.log(`   DB:   ${process.env.DB_NAME}`);
     connection.release();
   } catch (err) {
     console.error("❌ MySQL connection failed:", err.message);
@@ -79,20 +74,19 @@ const pool = mysql.createPool({
 })();
 
 // ============================================================
-//  HEALTH
+//  API ROUTES
 // ============================================================
+
+// 1. Health
 app.get("/api/health", (req, res) => {
   res.json({ success: true, message: "Server running" });
 });
 
-// ============================================================
-//  TESTIMONIALS — GET /api/testimonials
-// ============================================================
+// 2. GET Testimonials
 app.get("/api/testimonials", async (req, res) => {
   try {
     const [cols] = await pool.query(
-      `SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS
-       WHERE TABLE_SCHEMA = ? AND TABLE_NAME = 'thakarshi_reviews'`,
+      `SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = 'thakarshi_reviews'`,
       [process.env.DB_NAME]
     );
     const columnNames = cols.map((c) => c.COLUMN_NAME);
@@ -105,187 +99,84 @@ app.get("/api/testimonials", async (req, res) => {
     parts.push(columnNames.includes("created_at") ? "created_at" : "NOW() AS created_at");
 
     const whereClause = columnNames.includes("is_active") ? "WHERE is_active = 1" : "";
-    const orderBy = columnNames.includes("sort_order")
-      ? "sort_order ASC, created_at DESC"
-      : "created_at DESC";
+    const orderBy = columnNames.includes("sort_order") ? "sort_order ASC, created_at DESC" : "created_at DESC";
 
-    const sql = `
-      SELECT ${parts.join(", ")}
-      FROM thakarshi_reviews
-      ${whereClause}
-      ORDER BY ${orderBy}
-    `;
-
+    const sql = `SELECT ${parts.join(", ")} FROM thakarshi_reviews ${whereClause} ORDER BY ${orderBy}`;
     const [rows] = await pool.query(sql);
 
     res.json({ success: true, count: rows.length, data: rows });
   } catch (err) {
-    console.error("❌ Testimonials error:", err.message);
-    res.status(500).json({
-      success: false,
-      message: "Failed to fetch testimonials",
-      debug: err.message,
-    });
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 
-// ============================================================
-//  REVIEWS — POST /api/reviews
-// ============================================================
+// 3. POST Reviews
 app.post("/api/reviews", async (req, res) => {
   try {
     const { name, project, quote, rating } = req.body;
-
-    const errors = [];
-    if (!name || name.trim().length < 2) errors.push("Name is required");
-    if (!project || project.trim().length < 2) errors.push("Project is required");
-    if (!quote || quote.trim().length < 10) errors.push("Review must be at least 10 characters");
-
-    if (errors.length > 0) {
-      return res.status(400).json({ success: false, errors });
-    }
+    if (!name || !project || !quote) return res.status(400).json({ success: false, errors: ["Missing fields"] });
 
     const [result] = await pool.execute(
-      `INSERT INTO thakarshi_reviews (name, role, review, rating)
-       VALUES (?, ?, ?, ?)`,
+      `INSERT INTO thakarshi_reviews (name, role, review, rating) VALUES (?, ?, ?, ?)`,
       [name.trim(), project.trim(), quote.trim(), rating || 5]
     );
-
-    console.log(`⭐ New review #${result.insertId} — ${name}`);
-
-    res.status(201).json({
-      success: true,
-      message: "Review submitted successfully",
-      id: result.insertId,
-    });
+    res.status(201).json({ success: true, id: result.insertId });
   } catch (err) {
-    console.error("❌ Review error:", err.message);
-    res.status(500).json({
-      success: false,
-      message: "Server error. Please try again.",
-      debug: err.message,
-    });
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 
-// ============================================================
-//  ENQUIRIES — POST /api/enquiries
-//  Used by: JMH, Palm, Paradise, Elite modals
-// ============================================================
+// 4. POST Enquiries
 app.post("/api/enquiries", async (req, res) => {
   try {
     const { name, mobile, email, config, message, source } = req.body;
-
-    const errors = [];
-    if (!name || name.trim().length < 2) errors.push("Name is required");
-    if (!mobile || !/^[0-9+\-\s]{7,15}$/.test(mobile.trim())) {
-      errors.push("Valid mobile number is required");
-    }
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errors.push("Invalid email format");
-    }
-
-    if (errors.length > 0) {
-      return res.status(400).json({ success: false, errors });
-    }
-
     const [result] = await pool.execute(
-      `INSERT INTO thakarshi_enquiries
-        (name, mobile, email, config, message, source)
-       VALUES (?, ?, ?, ?, ?, ?)`,
-      [
-        name.trim(),
-        mobile.trim(),
-        email?.trim().toLowerCase() || null,
-        config?.trim() || null,
-        message?.trim() || null,
-        source?.trim() || "website",
-      ]
+      `INSERT INTO thakarshi_enquiries (name, mobile, email, config, message, source) VALUES (?, ?, ?, ?, ?, ?)`,
+      [name, mobile, email || null, config || null, message || null, source || "website"]
     );
-
-    console.log(`📥 New enquiry #${result.insertId} — ${name} [${source || "website"}]`);
-
-    res.status(201).json({
-      success: true,
-      message: "Enquiry submitted successfully",
-      id: result.insertId,
-    });
+    res.status(201).json({ success: true, id: result.insertId });
   } catch (err) {
-    console.error("❌ Enquiry error:", err.message);
-    res.status(500).json({
-      success: false,
-      message: "Server error. Please try again.",
-      debug: err.message,
-    });
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 
-// ============================================================
-//  CONTACTS — POST /api/contacts
-//  Contact page form → thakarshi_enquiries table
-// ============================================================
+// 5. POST Contacts
 app.post("/api/contacts", async (req, res) => {
   try {
     const { name, email, phone, subject, message } = req.body;
-
-    const errors = [];
-    if (!name || name.trim().length < 2) errors.push("Name is required");
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errors.push("Valid email is required");
-    }
-    if (!phone || !/^[0-9+\-\s]{7,15}$/.test(phone)) {
-      errors.push("Valid phone number is required");
-    }
-    if (!message || message.trim().length < 2) {
-      errors.push("Message is required");
-    }
-
-    if (errors.length > 0) {
-      return res.status(400).json({ success: false, errors });
-    }
-
     const [result] = await pool.execute(
-      `INSERT INTO thakarshi_enquiries
-        (name, mobile, email, config, message, source)
-       VALUES (?, ?, ?, ?, ?, ?)`,
-      [
-        name.trim(),
-        phone.trim(),
-        email.trim().toLowerCase(),
-        subject?.trim() || "General Enquiry",
-        message.trim(),
-        "contact-page",
-      ]
+      `INSERT INTO thakarshi_enquiries (name, mobile, email, config, message, source) VALUES (?, ?, ?, ?, ?, ?)`,
+      [name, phone, email, subject || "General Enquiry", message, "contact-page"]
     );
-
-    console.log(`📩 New contact #${result.insertId} — ${name} (${email})`);
-
-    res.status(201).json({
-      success: true,
-      message: "Message sent successfully",
-      id: result.insertId,
-    });
+    res.status(201).json({ success: true, id: result.insertId });
   } catch (err) {
-    console.error("❌ Contact error:", err.message);
-    res.status(500).json({
-      success: false,
-      message: "Server error. Please try again.",
-      debug: err.message,
-    });
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 
 // ============================================================
-//  ADMIN — GET /api/enquiries (list all)
+//  ✅ FRONTEND SERVING (React Build)
 // ============================================================
-app.get("/api/enquiries", async (req, res) => {
-  try {
-    const [rows] = await pool.query(
-      `SELECT * FROM thakarshi_enquiries ORDER BY created_at DESC LIMIT 100`
-    );
-    res.json({ success: true, count: rows.length, data: rows });
-  } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+
+// Frontend ka path (jahan 'dist' folder hoga)
+const frontendPath = path.join(__dirname, "dist"); 
+
+// Static files (CSS, JS, Images)
+app.use(express.static(frontendPath));
+
+// React Router ke routes handle karne ke liye (Catch-all)
+app.get('*', (req, res) => {
+  // Agar koi /api route pe nahi aaya, toh index.html bhej do
+  if (req.originalUrl.startsWith('/api')) {
+    return res.status(404).json({ message: "API route not found" });
+  }
+
+  const indexPath = path.join(frontendPath, 'index.html');
+
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.status(404).send('Frontend not built. Please run "npm run build" and place the dist folder here.');
   }
 });
 
@@ -293,5 +184,6 @@ app.get("/api/enquiries", async (req, res) => {
 //  START
 // ============================================================
 app.listen(PORT, () => {
-  console.log(`\n🚀 Server running on http://localhost:${PORT}\n`);
+  console.log(`\n🚀 Server running on port ${PORT}`);
+  console.log(`🌍 Frontend loading from: ${frontendPath}\n`);
 });
