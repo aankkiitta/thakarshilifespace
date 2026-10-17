@@ -1,0 +1,96 @@
+.palm-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 20px 60px;
+  transition: padding 0.35s ease, background 0.35s ease,
+              box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.palm-header.is-scrolled {
+  padding: 14px 60px;
+  background: #ffffff;
+  border-bottom-color: rgba(15, 23, 42, 0.06);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+}
+
+.palm-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.palm-logo { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; }
+
+.palm-logo-img {
+  height: 60px; width: auto; display: block;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: height 0.35s ease, filter 0.35s ease;
+}
+
+.palm-header.is-scrolled .palm-logo-img { height: 50px; filter: none; }
+
+.palm-nav { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+.palm-nav-item { display: inline-flex; align-items: center; gap: 18px; }
+
+.palm-nav-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 6px 4px;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  transition: color 0.25s ease;
+}
+.palm-nav-link:hover { color: #facc15; }
+
+.palm-header.is-scrolled .palm-nav-link { color: #1e293b; text-shadow: none; }
+.palm-header.is-scrolled .palm-nav-link:hover { color: #1a9bd7; }
+
+.palm-nav-sep { color: rgba(255, 255, 255, 0.45); font-size: 14px; }
+.palm-header.is-scrolled .palm-nav-sep { color: #cbd5e1; }
+
+.palm-burger {
+  display: none;
+  width: 42px; height: 42px;
+  align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+  border: none;
+  backdrop-filter: blur(8px);
+}
+
+.palm-header.is-scrolled .palm-burger {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+@media (max-width: 1024px) {
+  .palm-header { padding: 16px 32px; }
+  .palm-header.is-scrolled { padding: 12px 32px; }
+  .palm-logo-img { height: 52px; }
+  .palm-nav-link { font-size: 14px; }
+  .palm-nav-item { gap: 14px; }
+}
+
+@media (max-width: 900px) {
+  .palm-header { padding: 14px 20px; }
+  .palm-logo-img { height: 46px; }
+  .palm-nav { display: none; }
+  .palm-burger { display: flex; }
+}
+
+@media (max-width: 480px) {
+  .palm-logo-img { height: 40px; }
+}

@@ -1,0 +1,131 @@
+.palm-overview { padding: 80px 40px; background: #f7f7f5; }
+
+.palm-overview__inner {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.palm-overview__eyebrow {
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #334155;
+  margin-bottom: 14px;
+}
+
+.palm-overview__title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.palm-overview__divider {
+  display: block;
+  width: 55px; height: 2px;
+  background: #0f172a;
+  margin-bottom: 22px;
+}
+
+.palm-overview__lead {
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.palm-overview__text {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: #475569;
+  margin-bottom: 16px;
+  max-width: 640px;
+}
+
+.palm-overview__btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 15px 34px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #0f172a;
+  background: transparent;
+  border: 2px dotted #0f172a;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.palm-overview__btn:hover { background: #0f172a; color: #ffffff; }
+
+/* FORM */
+.palm-form { background: #ffffff; box-shadow: 0 8px 30px rgba(15,23,42,0.08); border-radius: 4px; overflow: hidden; }
+
+.palm-form__header {
+  background: #64748b;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 14px 20px;
+}
+
+.palm-form__body { padding: 26px 24px 24px; }
+.palm-form__field { margin-bottom: 22px; }
+
+.palm-form__field input {
+  width: 100%;
+  padding: 6px 0 8px;
+  font-size: 14px;
+  color: #0f172a;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #0f172a;
+  outline: none;
+}
+.palm-form__field input::placeholder { color: #94a3b8; }
+
+.palm-form__consent {
+  display: flex;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #475569;
+  margin-bottom: 22px;
+  cursor: pointer;
+}
+
+.palm-form__submit {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 40px;
+  background: #475569;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .palm-overview__inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .palm-overview { padding: 50px 16px; }
+  .palm-overview__title { font-size: 22px; }
+  .palm-overview__btn { width: 100%; text-align: center; }
+}
