@@ -18,14 +18,13 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ CORS FIXED FOR LIVE
+// ✅ CORS FIXED FOR VERCEL + LIVE DOMAIN
 const allowedOrigins = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
-  "http://localhost:3000",
-  "http://127.0.0.1:3000",
-  "https://www.thakarshilifespaces.com",  // ✅ Live domain (www)
-  "https://thakarshilifespaces.com",      // ✅ Live domain (bina www)
+  "https://www.thakarshilifespaces.com",  
+  "https://thakarshilifespaces.com",
+  "https://thakarshi.vercel.app", // ✅ Vercel Link Added
 ];
 
 app.use(
@@ -170,7 +169,6 @@ app.post("/api/reviews", async (req, res) => {
 
 // ============================================================
 //  ENQUIRIES — POST /api/enquiries
-//  Used by: JMH, Palm, Paradise, Elite modals
 // ============================================================
 app.post("/api/enquiries", async (req, res) => {
   try {
@@ -222,7 +220,6 @@ app.post("/api/enquiries", async (req, res) => {
 
 // ============================================================
 //  CONTACTS — POST /api/contacts
-//  Contact page form → thakarshi_enquiries table
 // ============================================================
 app.post("/api/contacts", async (req, res) => {
   try {
@@ -276,7 +273,7 @@ app.post("/api/contacts", async (req, res) => {
 });
 
 // ============================================================
-//  ADMIN — GET /api/enquiries (list all)
+//  ADMIN — GET /api/enquiries
 // ============================================================
 app.get("/api/enquiries", async (req, res) => {
   try {
